@@ -1,2 +1,2 @@
 # PIB
-The repository for paper "PIB: Priority-Based Information Bottleneck for Collaborative Edge Inference in Video Analytics"
+The repository for paper "PIB: Prioritized Information Bottleneck \\Framework for Collaborative Edge Video Analytics"
