@@ -19,3 +19,18 @@ pytorch==1.10.0
 torchaudio==0.10.0
 torchvision==0.11.0
 tqdm==4.66.4
+```
+
+## Demo Videos
+
+### Single Camera Perception
+
+The following video demonstrates the perception results from a single camera (the 4th edge camera). Notice the limited perception range and the pedestrians that are not detected (dashed circles).
+
+[![Single Camera Perception](https://img.youtube.com/vi/single-4.mp4/0.jpg)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/single-4.mp4)
+
+### Collaborative Perception
+
+The next video shows the improved perception coverage when the 4th and 7th edge cameras collaborate. While collaboration enhances the coverage, there are still some undetected pedestrians compared to the results from seven edge cameras.
+
+[![Collaborative Perception](https://img.youtube.com/vi/double.mp4/0.jpg)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.mp4)
