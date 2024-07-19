@@ -41,3 +41,9 @@ We utilize all cameras (seven edge cameras) to cooperate with each other and imp
 
 [![Seven-Camera Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/7-camera_Compression.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/7-camera_Compression.mp4)
 
+## Acknowledgement
+
+We gratefully acknowledge the contributions of the following projects:
+
+- [MVDet](https://github.com/hou-yz/MVDet) for their invaluable tools and insights into multi-view detection.
+- [TOCOM-TEM](https://github.com/shaojiawei07/TOCOM-TEM) for providing task-oriented communication framework for edge video analytics.
