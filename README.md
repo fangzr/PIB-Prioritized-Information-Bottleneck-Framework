@@ -23,7 +23,7 @@ tqdm==4.66.4
 
 ## Framework
 
-[![System model](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/system-model.jpg)]
+![System model](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/system-model.jpg | width=50%)
 
 Our system includes edge cameras positioned across various scenes, each covering a specific field of view. The combined fields of view ensure comprehensive monitoring of each scene. In high-density pedestrian areas, the goal is to enable collaborative perception for predicting pedestrian occupancy despite limited channel capacity and poor conditions. The framework uses edge servers to receive and process video data from the cameras, which is then analyzed by a cloud server connected via fast wired links. This setup ensures efficient surveillance and real-time analytics, prioritizing essential data for transmission and processing.
 
