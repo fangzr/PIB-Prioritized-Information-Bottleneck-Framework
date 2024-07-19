@@ -27,10 +27,10 @@ tqdm==4.66.4
 
 The following video demonstrates the perception results from a single camera (the 4th edge camera). Notice the limited perception range and the pedestrians that are not detected (dashed circles).
 
-[![Single Camera Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/single-vs-collaboration-perception-1_00.jpg)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/raw/main/Demo/single-4.mp4)
+[![Single Camera Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/single-4.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/raw/main/Demo/single-4.mp4)
 
 ### Collaborative Perception
 
 The next video shows the improved perception coverage when the 4th and 7th edge cameras collaborate. While collaboration enhances the coverage, there are still some undetected pedestrians compared to the results from seven edge cameras.
 
-[![Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/single-vs-collaboration-perception-2_00.jpg)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.mp4)
+[![Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.mp4)
