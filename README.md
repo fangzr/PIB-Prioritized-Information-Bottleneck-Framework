@@ -63,7 +63,7 @@ Key parameters:
 - `--dataset_path`: Path to your dataset directory
 - `--epochs`: Number of training epochs (default: 30)
 - `--beta`: Information bottleneck trade-off parameter (default: 1e-5)
-- `--target_rate`: Target bitrate for compression (bits per pixel)
+- `--target_rate`: The constraint on the communication cost (KB)
 - `--delays`: Frame delays for each camera (space-separated values). Each value X represents the number of frames delayed for that camera, calculated based on network conditions in utils/channel.py
 
 #### Stage 2: Coding and Inference
