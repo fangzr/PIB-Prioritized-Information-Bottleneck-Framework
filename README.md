@@ -1,15 +1,14 @@
-# PIB: Prioritized Information Bottleneck Framework for Collaborative Edge Video Analytics
+# PIB: Prioritized Information Bottleneck Theoretic Framework with Distributed Online Learning for Edge Video Analytics
 
 ## Abstract
 
-Collaborative edge sensing systems, particularly in collaborative perception systems in autonomous driving, can significantly enhance tracking accuracy and reduce blind spots with multi-view sensing capabilities. However, their limited channel capacity and the redundancy in sensory data pose significant challenges, affecting the performance of collaborative inference tasks. To tackle these issues, we introduce a Prioritized Information Bottleneck (PIB) framework for collaborative edge video analytics. We first propose a priority-based inference mechanism that jointly considers the signal-to-noise ratio (SNR) and the camera's coverage area of the region of interest (RoI). To enable efficient inference, PIB reduces video redundancy in both spatial and temporal domains and transmits only the essential information for the downstream inference tasks. This eliminates the need to reconstruct videos on the edge server while maintaining low latency. Specifically, it derives compact, task-relevant features by employing the deterministic information bottleneck (IB) method, which strikes a balance between feature informativeness and communication costs. Given the computational challenges caused by IB-based objectives with high-dimensional data, we resort to variational approximations for feasible optimization. Compared to five coding methods for image and video compression, PIB improves mean object detection accuracy (MODA) by 17.8\% and reduces communication costs by 49.61\% in poor channel conditions.
+Collaborative perception systems leverage multiple edge devices, such as surveillance cameras or autonomous cars, to enhance sensing quality and eliminate blind spots. Despite their advantages, challenges such as limited channel capacity and data redundancy impede their effectiveness. To address these issues, we introduce the Prioritized Information Bottleneck (PIB) framework for edge video analytics. This framework prioritizes the shared data based on the signal-to-noise ratio (SNR) and camera coverage of the region of interest (RoI), reducing spatial-temporal data redundancy to transmit only essential information. This strategy avoids the need for video reconstruction at edge servers and maintains low latency. It leverages a deterministic information bottleneck method to extract compact, relevant features, balancing informativeness and communication costs. For high-dimensional data, we apply variational approximations for practical optimization. To reduce communication costs in fluctuating connections, we propose a gate mechanism based on distributed online learning (DOL) to filter out less informative messages and efficiently select edge servers. Moreover, we establish the asymptotic optimality of DOL by proving the sublinearity of its regrets. To validate the effectiveness of the PIB framework, we conduct real-world experiments on three types of edge devices with varied computing capabilities. Compared to five coding methods for image and video compression, PIB improves mean object detection accuracy (MODA) by 17.8\% while reducing communication costs by 82.65\% under poor channel conditions.
 
 ## Requirements
 
 To replicate the environment and dependencies used in this project, you will need the following packages:
 
 ```plaintext
-ffmpeg-python==0.2.0
 kornia==0.6.1
 matplotlib==3.5.3
 numpy==1.21.5
@@ -27,6 +26,85 @@ tqdm==4.66.4
 
 Our system includes edge cameras positioned across various scenes, each covering a specific field of view. The combined fields of view ensure comprehensive monitoring of each scene. In high-density pedestrian areas, the goal is to enable collaborative perception for predicting pedestrian occupancy despite limited channel capacity and poor conditions. The framework uses edge servers to receive and process video data from the cameras, which is then analyzed by a cloud server connected via fast wired links. This setup ensures efficient surveillance and real-time analytics, prioritizing essential data for transmission and processing.
 
+## Usage
+
+### Environment Setup
+
+1. Create and activate the Conda environment:
+```bash
+conda create -n MVDet_NEXT python=3.7.12
+conda activate MVDet_NEXT
+```
+
+2. Install the required packages:
+```bash
+pip install kornia==0.6.1 matplotlib==3.5.3 numpy==1.21.5 pillow==9.4.0
+pip install torch==1.10.0 torchaudio==0.10.0 torchvision==0.11.0 tqdm==4.66.4
+```
+
+### Training Pipeline
+
+The training process consists of two main stages: feature extraction and coding/inference.
+
+#### Stage 1: Feature Extraction
+
+Run feature extraction using `main_feature_extraction.py`. The script supports various parameters:
+
+```bash
+python main_feature_extraction.py \
+    --dataset_path "/path/to/your/dataset" \
+    --epochs 30 \
+    --beta 1e-5 \
+    --target_rate 80 \
+    --delays "X1 X2 X3 X4 X5 X6 X7"  # Xi represents frame delay for i-th camera, calculated based on channel conditions
+```
+
+Key parameters:
+- `--dataset_path`: Path to your dataset directory
+- `--epochs`: Number of training epochs (default: 30)
+- `--beta`: Information bottleneck trade-off parameter (default: 1e-5)
+- `--target_rate`: Target bitrate for compression (bits per pixel)
+- `--delays`: Frame delays for each camera (space-separated values). Each value X represents the number of frames delayed for that camera, calculated based on network conditions in utils/channel.py
+
+#### Stage 2: Coding and Inference
+
+After feature extraction, run the coding and inference stage using `main_coding_and_inference.py`:
+
+```bash
+python main_coding_and_inference.py \
+    --dataset_path "/path/to/your/dataset" \
+    --model_path "/path/to/trained/model/MultiviewDetector.pth" \
+    --epochs 10 \
+    --delays "X1 X2 X3 X4 X5 X6 X7"  # Xi represents frame delay for i-th camera, calculated based on channel conditions
+```
+
+Key parameters:
+- `--dataset_path`: Path to your dataset directory
+- `--model_path`: Path to the trained model from Stage 1
+- `--epochs`: Number of inference epochs (default: 10)
+- `--delays`: Frame delays for each camera (space-separated values). Each value X represents the number of frames delayed for that camera, calculated based on network conditions in utils/channel.py
+
+### Example Training Workflow
+
+1. First, run feature extraction:
+```bash
+CUDA_VISIBLE_DEVICES=0,1 python main_feature_extraction.py \
+    --dataset_path "/data/Wildtrack" \
+    --epochs 30 \
+    --beta 1e-5 \
+    --target_rate 80
+```
+
+2. Then, run coding and inference using the trained model:
+```bash
+CUDA_VISIBLE_DEVICES=0,1 python main_coding_and_inference.py \
+    --dataset_path "/data/Wildtrack" \
+    --model_path "logs_feature_extraction/YYYY-MM-DD_HH-MM-SS/MultiviewDetector.pth" \
+    --epochs 10
+```
+
+Note: Replace the model path with your actual trained model path, which will be in the logs directory with a timestamp.
+
 ## Demo
 
 ### Single Camera Perception
@@ -37,15 +115,39 @@ The following video demonstrates the perception results from a single camera (th
 
 ### Collaborative Perception
 
-### Two-camera collaboration
+#### Two-camera collaboration
 The next video shows the improved perception coverage when the 4th and 7th edge cameras collaborate. While collaboration enhances the coverage, there are still some undetected pedestrians compared to the results from seven edge cameras.
 
 [![Two-Camera Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.mp4)
 
-### Seven-camera collaboration
+#### Seven-camera collaboration
 We utilize all cameras (seven edge cameras) to cooperate with each other and improve perception coverage. Although we see rapid growth in streaming data rates, it is noted that this solution provides the best coverage compared to the combinations mentioned above.
 
 [![Seven-Camera Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/7-camera_Compression.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/7-camera_Compression.mp4)
+
+## Citations
+
+If you find this code useful for your research, please cite our papers:
+
+```bibtex
+@article{fang2024,
+  title={Prioritized Information Bottleneck Theoretic Framework with Distributed Online Learning for Edge Video Analytics},
+  author={Fang, Z. and Hu, S. and Wang, J. and Deng, Y. and Chen, X. and Fang, Y.},
+  journal={IEEE/ACM Transactions on Networking},
+  year={2024},
+  note={DOI: 10.1109/TON.2025.3526148},
+  publisher={IEEE}
+}
+
+@inproceedings{fang2024pib,
+  author = {Z. Fang and S. Hu and L. Yang and Y. Deng and X. Chen and Y. Fang},
+  title = {{PIB: P}rioritized Information Bottleneck Framework for Collaborative Edge Video Analytics},
+  booktitle = {IEEE Global Communications Conference (GLOBECOM)},
+  year = {Dec. 2024},
+  pages = {1--6},
+  address = {Cape Town, South Africa}
+}
+```
 
 ## Acknowledgement
 
