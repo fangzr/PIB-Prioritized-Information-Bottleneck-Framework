@@ -31,7 +31,7 @@ Our system includes edge cameras positioned across various scenes, each covering
 ## Experimental Results
 
 ### Dataset
-Our experiments employ the [Wildtrack dataset](https://www.epfl.ch/labs/cvlab/data/data-wildtrack/) from EPFL. This dataset features high-resolution images captured by seven cameras positioned in a public area, recording unscripted pedestrian movements. The dataset is widely used for multi-camera applications and provides an excellent testbed for collaborative edge video analytics \[[Chavdarova et al., 2018](https://arxiv.org/abs/1705.03847)\].
+Our experiments employ the [Wildtrack dataset](https://www.epfl.ch/labs/cvlab/data/data-wildtrack/) from EPFL. This dataset features high-resolution images captured by seven cameras positioned in a public area, recording unscripted pedestrian movements \[[Chavdarova et al., 2018](https://arxiv.org/abs/1705.03847)\].
 
 ### Experimental Parameters
 We conduct simulations using the following settings:
@@ -43,7 +43,6 @@ We conduct simulations using the following settings:
 - **Bandwidth**: 2 MHz
 - **Camera Placement**: Cameras are located approximately 200 meters from the edge server.
 
-These parameters are designed to replicate real-world edge computing environments with varying levels of congestion and communication challenges.
 
 ### Baselines
 To evaluate the performance of our PIB framework, we compare it against five baselines, including both video coding and image coding approaches:
