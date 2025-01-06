@@ -109,8 +109,8 @@ The encoding latency results of our PIB in different edge devices are presented 
 
 1. Create and activate the Conda environment:
 ```bash
-conda create -n MVDet_NEXT python=3.7.12
-conda activate MVDet_NEXT
+conda create -n PIB_env python=3.7.12
+conda activate PIB_env
 ```
 
 2. Install the required packages:
