@@ -130,7 +130,7 @@ We utilize all cameras (seven edge cameras) to cooperate with each other and imp
 If you find this code useful for your research, please cite our papers:
 
 ```bibtex
-@article{fang2024,
+@article{fang2025ton,
   title={Prioritized Information Bottleneck Theoretic Framework with Distributed Online Learning for Edge Video Analytics},
   author={Fang, Z. and Hu, S. and Wang, J. and Deng, Y. and Chen, X. and Fang, Y.},
   journal={IEEE/ACM Transactions on Networking},
