@@ -22,7 +22,8 @@ tqdm==4.66.4
 
 ## Framework
 
-<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/system-model.jpg" alt="System model" width="50%">
+<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/system-model.jpg" alt="System model" width="80%">
+
 **Figure 1: System model.**
 
 Our system includes edge cameras positioned across various scenes, each covering a specific field of view. The combined fields of view ensure comprehensive monitoring of each scene. In high-density pedestrian areas, the goal is to enable collaborative perception for predicting pedestrian occupancy despite limited channel capacity and poor conditions. The framework uses edge servers to receive and process video data from the cameras, which is then analyzed by a cloud server connected via fast wired links. This setup ensures efficient surveillance and real-time analytics, prioritizing essential data for transmission and processing.
@@ -33,21 +34,24 @@ Our system includes edge cameras positioned across various scenes, each covering
 
 As shown in Figure 2, we demonstrate how communication bottlenecks and delayed cameras affect perception accuracy:
 
-<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/performance1.png" alt="Impact of communication bottlenecks and delayed cameras on perception accuracy." width="50%">
+<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/performance1.png" alt="Impact of communication bottlenecks and delayed cameras on perception accuracy." width="80%">
+
 **Figure 2: Impact of communication bottlenecks and delayed cameras on perception accuracy.**
 
 ### Communication Bottleneck vs Latency
 
 Figure 3 illustrates the trade-off between communication bottlenecks and latency in our system:
 
-<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/latency1.png" alt="Communication bottleneck vs latency." width="50%">
+<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/latency1.png" alt="Communication bottleneck vs latency." width="80%">
+
 **Figure 3: Communication bottleneck vs latency.**
 
 ### Hardware Platform Configuration
 
 As shown in Figure 4, our experimental setup features a practical hardware testbed that includes three distinct edge devices: NVIDIA Jetson™ Orin Nano™ 4GB, NVIDIA Jetson™ Orin NX™ 16GB, and ThinkStation™ P360. The edge devices collaboratively interact with edge servers equipped with RTX 5000 Ada GPUs for efficient video decoding.
 
-<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/hardware.png" alt="Hardware setup" width="50%">
+<img src="https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Figure/hardware.png" alt="Hardware setup" width="80%">
+
 **Figure 4: Edge device configuration.**
 
 ### Jetson™ Orin device Configuration
