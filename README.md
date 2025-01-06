@@ -30,6 +30,39 @@ Our system includes edge cameras positioned across various scenes, each covering
 
 ## Experimental Results
 
+### Dataset
+Our experiments employ the [Wildtrack dataset](https://www.epfl.ch/labs/cvlab/data/data-wildtrack/) from EPFL. This dataset features high-resolution images captured by seven cameras positioned in a public area, recording unscripted pedestrian movements. The dataset is widely used for multi-camera applications and provides an excellent testbed for collaborative edge video analytics \[[Chavdarova et al., 2018](https://arxiv.org/abs/1705.03847)\].
+
+### Experimental Parameters
+We conduct simulations using the following settings:
+- **Operating Frequency**: 2.4 GHz
+- **Path Loss Exponent**: 3.5
+- **Shadowing Deviation**: 8 dB
+- **Interference Power**: Devices emit an interference power of 0.1 Watts.
+- **Device Density**: 10 to 100 devices per 100 square meters, testing various congestion levels.
+- **Bandwidth**: 2 MHz
+- **Camera Placement**: Cameras are located approximately 200 meters from the edge server.
+
+These parameters are designed to replicate real-world edge computing environments with varying levels of congestion and communication challenges.
+
+### Baselines
+To evaluate the performance of our PIB framework, we compare it against five baselines, including both video coding and image coding approaches:
+
+1. **[TOCOM-TEM](https://github.com/shaojiawei07/TOCOM-TEM)**  
+   A task-oriented communication framework that utilizes a temporal entropy model for edge video analytics. It applies the deterministic Information Bottleneck (IB) principle to extract and transmit compact, task-relevant features, integrating spatial-temporal data on the server for enhanced inference accuracy.
+
+2. **[JPEG](https://dl.acm.org/doi/abs/10.1145/103085.103089)**  
+   A widely used image compression standard that employs lossy compression algorithms to reduce image data size. JPEG is commonly used to decrease communication loads in networked camera systems.
+
+3. **[H.265 (HEVC)](https://ieeexplore.ieee.org/abstract/document/7100895/?casa_token=1h0USFniCPEAAAAA:xmqN8ev626HwHPwczUkAK5Sw--C02k0E5RVVJ9ayDNgicli412wTNmdKDLIK-WU-DrWidFmDkQ)**  
+   Also known as High Efficiency Video Coding, H.265 offers up to 50% better data compression than its predecessor H.264, while maintaining the same video quality. It is crucial for efficient data transmission in high-density camera networks.
+
+4. **[H.264 (AVC)](https://ieeexplore.ieee.org/abstract/document/1218189/?casa_token=MZil42Kz95IAAAAA:ndWTce90S_raoq3D-qrvHNwP5zpjqV7vy4YEibLV1m93H0uRQBPvUanm2GvBTSQkeEmRX5LRQQ)**  
+   Known as Advanced Video Coding, H.264 significantly enhances video compression efficiency, allowing high-quality video transmission at lower bit rates.
+
+5. **[AV1](https://ieeexplore.ieee.org/abstract/document/9363937/)**  
+   AOMedia Video 1 (AV1) is an open, royalty-free video coding format developed by the Alliance for Open Media (AOMedia). It outperforms existing codecs like H.264 and H.265, making it ideal for online video applications with improved compression efficiency.
+
 ### Impact of Communication Bottlenecks and Delayed Cameras on Perception Accuracy
 
 As shown in Figure 2, we demonstrate how communication bottlenecks and delayed cameras affect perception accuracy:
