@@ -134,7 +134,7 @@ If you find this code useful for your research, please cite our papers:
   title={Prioritized Information Bottleneck Theoretic Framework with Distributed Online Learning for Edge Video Analytics},
   author={Fang, Z. and Hu, S. and Wang, J. and Deng, Y. and Chen, X. and Fang, Y.},
   journal={IEEE/ACM Transactions on Networking},
-  year={2024},
+  year={Jan. 2025},
   note={DOI: 10.1109/TON.2025.3526148},
   publisher={IEEE}
 }
