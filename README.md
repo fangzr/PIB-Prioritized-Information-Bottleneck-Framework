@@ -58,6 +58,19 @@ As shown in Figure 4, our experimental setup features a practical hardware testb
 
 The Jetson™ Orin NX™ 16GB/ Jetson™ Orin Nano™ devices are configured with a PyTorch deep learning environment. The configuration for Jetson NX differs from x86 architectures, and setting up the environment requires following the official NVIDIA installation guide for PyTorch on the Jetson platform. For detailed instructions, you can refer to the official [PyTorch installation guide for Jetson](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html#install-multiple-versions-pytorch) or this helpful [tutorial](https://www.cnblogs.com/guohaomeng/p/18347870).
 
+### Encoder Latency Across Different Platforms
+
+The encoding latency results of our PIB in different edge devices are presented in **Table 1**. It can be observed that the feature map generation phase dominates the overall encoding latency, while the entropy coding phase contributes a negligible amount of time. Furthermore, edge devices with higher computing capacity exhibit significantly lower encoding latency.
+
+**Table 1: Encoder Latency Across Different Platforms**
+
+| **Phase**                   | **Nano (ms)**    | **Orin NX (ms)**  | **P360 (ms)**    |
+|-----------------------------|------------------|-------------------|------------------|
+| Feature map generation      | 755.32±69.32     | 227.54±2.65       | 37.49±0.90       |
+| Entropy coding              | 10.83±3.51       | 1.79±0.75         | 0.40±0.11        |
+| **Total encoder latency**   | **766.15±70.55** | **229.34±2.67**   | **37.80±0.94**   |
+
+
 ## Usage
 
 ### Environment Setup
