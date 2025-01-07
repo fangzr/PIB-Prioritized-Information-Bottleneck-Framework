@@ -1,6 +1,6 @@
 # PIB: Prioritized Information Bottleneck Theoretic Framework with Distributed Online Learning for Edge Video Analytics (IEEE ToN'25)
 
-This is the open-source repository of the paper published in IEEE ToN [Paper PDF](https://www.researchgate.net/publication/387662571_Prioritized_Information_Bottleneck_Theoretic_Framework_with_Distributed_Online_Learning_for_Edge_Video_Analytics).
+This is the open-source repository of the paper published in IEEE ToN [(Paper PDF)](https://www.researchgate.net/publication/387662571_Prioritized_Information_Bottleneck_Theoretic_Framework_with_Distributed_Online_Learning_for_Edge_Video_Analytics).
 
 ## Abstract
 
