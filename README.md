@@ -1,4 +1,4 @@
-# PIB: Prioritized Information Bottleneck Theoretic Framework with Distributed Online Learning for Edge Video Analytics
+# PIB: Prioritized Information Bottleneck Theoretic Framework with Distributed Online Learning for Edge Video Analytics (IEEE ToN'25)
 
 ## Abstract
 
