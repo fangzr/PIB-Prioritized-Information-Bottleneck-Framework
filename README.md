@@ -190,19 +190,21 @@ Note: Replace the model path with your actual trained model path, which will be 
 
 The following video demonstrates the perception results from a single camera (the 4th edge camera). Notice the limited perception range and the pedestrians that are not detected (dashed circles).
 
-<video src="https://raw.githubusercontent.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/main/Demo/single-4.mp4" controls></video>
+https://github.com/user-attachments/assets/3caefecc-6631-4318-a514-50aebf681e91
+
 
 ### Collaborative Perception
 
 #### Two-camera collaboration
 The next video shows the improved perception coverage when the 4th and 7th edge cameras collaborate. While collaboration enhances the coverage, there are still some undetected pedestrians compared to the results from seven edge cameras.
 
-<video src="https://raw.githubusercontent.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/main/Demo/double.mp4" controls></video>
+https://github.com/user-attachments/assets/6840c0fb-6aed-4fcb-9c2a-1e11db26838c
 
 #### Seven-camera collaboration
 We utilize all cameras (seven edge cameras) to cooperate with each other and improve perception coverage. Although we see rapid growth in streaming data rates, it is noted that this solution provides the best coverage compared to the combinations mentioned above.
 
-<video src="https://raw.githubusercontent.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/main/Demo/7-camera_Compression.mp4" controls></video>
+Uploading 7-camera_Compression.mp4…
+
 
 ## Citations
 
