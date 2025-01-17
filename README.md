@@ -203,7 +203,11 @@ https://github.com/user-attachments/assets/6840c0fb-6aed-4fcb-9c2a-1e11db26838c
 #### Seven-camera collaboration
 We utilize all cameras (seven edge cameras) to cooperate with each other and improve perception coverage. Although we see rapid growth in streaming data rates, it is noted that this solution provides the best coverage compared to the combinations mentioned above.
 
-Uploading 7-camera_Compression.mp4…
+
+
+https://github.com/user-attachments/assets/3aa59443-e997-4722-bd26-192a3de88e84
+
+
 
 
 ## Citations
