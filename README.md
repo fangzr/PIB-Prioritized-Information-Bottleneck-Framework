@@ -190,19 +190,25 @@ Note: Replace the model path with your actual trained model path, which will be 
 
 The following video demonstrates the perception results from a single camera (the 4th edge camera). Notice the limited perception range and the pedestrians that are not detected (dashed circles).
 
-[![Single Camera Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/trimmed_gifs/single-4.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/raw/main/Demo/single-4.mp4)
+<!-- [![Single Camera Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/trimmed_gifs/single-4.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/raw/main/Demo/single-4.mp4) -->
+
+https://raw.githubusercontent.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/refs/heads/main/Demo/single-4.mp4
 
 ### Collaborative Perception
 
 #### Two-camera collaboration
 The next video shows the improved perception coverage when the 4th and 7th edge cameras collaborate. While collaboration enhances the coverage, there are still some undetected pedestrians compared to the results from seven edge cameras.
 
-[![Two-Camera Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/trimmed_gifs/double.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.mp4)
+https://raw.githubusercontent.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/refs/heads/main/Demo/double.mp4
+
+<!-- [![Two-Camera Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/trimmed_gifs/double.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/double.mp4) -->
 
 #### Seven-camera collaboration
 We utilize all cameras (seven edge cameras) to cooperate with each other and improve perception coverage. Although we see rapid growth in streaming data rates, it is noted that this solution provides the best coverage compared to the combinations mentioned above.
 
-[![Seven-Camera Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/trimmed_gifs/7-camera_Compression.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/7-camera_Compression.mp4)
+<!-- [![Seven-Camera Collaborative Perception](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/trimmed_gifs/7-camera_Compression.gif)](https://github.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/blob/main/Demo/7-camera_Compression.mp4) -->
+
+https://raw.githubusercontent.com/fangzr/PIB-Prioritized-Information-Bottleneck-Framework/refs/heads/main/Demo/7-camera_Compression.mp4
 
 ## Citations
 
