@@ -4,7 +4,7 @@ This is the open-source repository of the paper published in IEEE ToN [(Paper PD
 
 ## Abstract
 
-Collaborative perception systems leverage multiple edge devices, such as surveillance cameras or autonomous cars, to enhance sensing quality and eliminate blind spots. Despite their advantages, challenges such as limited channel capacity and data redundancy impede their effectiveness. To address these issues, we introduce the Prioritized Information Bottleneck (PIB) framework for edge video analytics. This framework prioritizes the shared data based on the signal-to-noise ratio (SNR) and camera coverage of the region of interest (RoI), reducing spatial-temporal data redundancy to transmit only essential information. This strategy avoids the need for video reconstruction at edge servers and maintains low latency. It leverages a deterministic information bottleneck method to extract compact, relevant features, balancing informativeness and communication costs. For high-dimensional data, we apply variational approximations for practical optimization. To reduce communication costs in fluctuating connections, we propose a gate mechanism based on distributed online learning (DOL) to filter out less informative messages and efficiently select edge servers. Moreover, we establish the asymptotic optimality of DOL by proving the sublinearity of its regrets. To validate the effectiveness of the PIB framework, we conduct real-world experiments on three types of edge devices with varied computing capabilities. Compared to five coding methods for image and video compression, PIB improves mean object detection accuracy (MODA) by 17.8\% while reducing communication costs by 82.65\% under poor channel conditions.
+Collaborative perception systems leverage multiple edge devices, such as vision-enabled edge sensors or autonomous cars, to enhance sensing quality and minimize occlusions. Despite their advantages, challenges such as limited channel capacity and data redundancy impede their effectiveness. To address these issues, we introduce the Prioritized Information Bottleneck (PIB) framework for edge video analytics. This framework prioritizes the shared data based on the signal-to-noise ratio (SNR) and camera coverage of the region of interest (RoI), reducing spatial-temporal data redundancy to transmit only essential information. This strategy avoids the need for video reconstruction at edge servers and maintains low latency. It leverages a deterministic information bottleneck method to extract compact, relevant features, balancing informativeness and communication costs. For high-dimensional data, we apply variational approximations for practical optimization. To reduce communication costs in fluctuating connections, we propose a gate mechanism based on distributed online learning (DOL) to filter out less informative messages and efficiently select edge servers. Moreover, we establish the asymptotic optimality of DOL by proving the sublinearity of its regrets. To validate the effectiveness of the PIB framework, we conduct real-world experiments on three types of edge devices with varied computing capabilities. Compared to five coding methods for image and video compression, PIB improves mean object detection accuracy (MODA) by 17.8\% while reducing communication costs by 82.65\% under poor channel conditions.
 
 ## Requirements
 
@@ -28,12 +28,12 @@ tqdm==4.66.4
 
 **Figure 1: System model.**
 
-Our system includes edge cameras positioned across various scenes, each covering a specific field of view. The combined fields of view ensure comprehensive monitoring of each scene. In high-density pedestrian areas, the goal is to enable collaborative perception for predicting pedestrian occupancy despite limited channel capacity and poor conditions. The framework uses edge servers to receive and process video data from the cameras, which is then analyzed by a cloud server connected via fast wired links. This setup ensures efficient surveillance and real-time analytics, prioritizing essential data for transmission and processing.
+Our system includes edge cameras positioned across various scenes, each covering a specific field of view. The combined fields of view enhance comprehensive perception of each scene. In high-density pedestrian areas, the goal is to enable collaborative perception for predicting pedestrian occupancy despite limited channel capacity and poor conditions. The framework uses edge servers to receive and process video data from the cameras, which is then analyzed by a cloud server connected via fast wired links. This setup ensures efficient scene understanding and real-time analytics, prioritizing essential data for transmission and processing.
 
 ## Experimental Results
 
 ### Dataset
-Our experiments employ the [Wildtrack dataset](https://www.epfl.ch/labs/cvlab/data/data-wildtrack/) from EPFL. This dataset features high-resolution images captured by seven cameras positioned in a public area, recording unscripted pedestrian movements \[[Chavdarova et al., 2018](https://arxiv.org/abs/1705.03847)\].
+Our experiments employ the [Wildtrack dataset](https://www.epfl.ch/labs/cvlab/data/data-wildtrack/) from EPFL. This dataset features high-resolution images captured by seven cameras positioned in an urban environment, recording natural pedestrian trajectories \[[Chavdarova et al., 2018](https://arxiv.org/abs/1705.03847)\].
 
 ### Experimental Parameters
 We conduct simulations using the following settings:
@@ -41,7 +41,7 @@ We conduct simulations using the following settings:
 - **Path Loss Exponent**: 3.5
 - **Shadowing Deviation**: 8 dB
 - **Interference Power**: Devices emit an interference power of 0.1 Watts.
-- **Device Density**: 10 to 100 devices per 100 square meters, testing various congestion levels.
+- **Device Density**: 10 to 100 devices per 100 square meters, testing various data processing loads.
 - **Bandwidth**: 2 MHz
 - **Camera Placement**: Cameras are located approximately 200 meters from the edge server.
 
@@ -188,7 +188,7 @@ Note: Replace the model path with your actual trained model path, which will be 
 
 ### Single Camera Perception
 
-The following video demonstrates the perception results from a single camera (the 4th edge camera). Notice the limited perception range and the pedestrians that are not detected (dashed circles).
+The following video demonstrates the perception results from a single camera (the 4th edge camera). Notice the field of view limitations, and instances where objects remain undetected (highlighted regions).
 
 https://github.com/user-attachments/assets/3caefecc-6631-4318-a514-50aebf681e91
 
@@ -196,7 +196,7 @@ https://github.com/user-attachments/assets/3caefecc-6631-4318-a514-50aebf681e91
 ### Collaborative Perception
 
 #### Two-camera collaboration
-The next video shows the improved perception coverage when the 4th and 7th edge cameras collaborate. While collaboration enhances the coverage, there are still some undetected pedestrians compared to the results from seven edge cameras.
+The next video shows the improved perception coverage when the 4th and 7th edge cameras collaborate. While collaboration enhances the coverage, there are still some occluded regions compared to the results from seven edge cameras.
 
 https://github.com/user-attachments/assets/6840c0fb-6aed-4fcb-9c2a-1e11db26838c
 
