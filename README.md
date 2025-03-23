@@ -12,7 +12,7 @@ In collaborative perception systems, multiple unmanned ground vehicles (UGVs) eq
 - **Timeliness and Data Freshness**: Ensuring real-time updates and fresh data streams is essential, especially in scenarios requiring timely reactions (e.g., pedestrian tracking, emergency alerts).
 - **Communication Constraints**: Bandwidth limitations and unreliable communication channels further complicate real-time collaborative perception.
 
-<img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/Challenges.png" alt="Effect of unpredictable accidents involving UGVs on camera extrinsic parameters and perception error rates." width="80%">
+<img src="https://raw.githubusercontent.com/fangzr/R-ACP/refs/heads/main/Challenges.png" alt="Effect of unpredictable accidents involving UGVs on camera extrinsic parameters and perception error rates." width="60%">
 
 Figure 1 illustrates how unpredictable accidents involving UGVs impact extrinsic calibration parameters, significantly increasing perception errors.
 
